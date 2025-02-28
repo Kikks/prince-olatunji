@@ -4,8 +4,6 @@ import { PiArrowRightBold } from "react-icons/pi";
 
 import ScrollFloat from "@/components/ui/ScrollFloat/ScrollFloat";
 
-const colors = ["rgb(252, 245, 239)", "#fff", "#f9cc92"];
-
 const About = () => {
 	return (
 		<section className='relative w-full flex'>
