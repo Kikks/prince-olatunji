@@ -98,6 +98,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text, image }) => {
 			<a
 				className='menu__item-link'
 				href={link}
+				target='_blank'
 				onMouseEnter={handleMouseEnter}
 				onMouseLeave={handleMouseLeave}
 			>

@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Banner = () => {
 	return (
-		<section className='bg-cream w-full h-[calc(100vh-100px)] max-h-[900px] flex'>
+		<section className='bg-cream w-full h-[calc(100vh-100px)] max-h-[900px] flex overflow-hidden'>
 			<div className='relative px-6 lg:px-8 flex-1 w-full flex items-center justify-center'>
 				<div className='container flex items-center justify-between gap-10 mx-auto lg:max-w-screen-xl md:max-w-screen-md px-4'>
 					<div className='flex flex-col space-y-5 items-start max-w-2xl'>

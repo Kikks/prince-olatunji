@@ -50,10 +50,10 @@ const Header: React.FC = () => {
 	return (
 		<header
 			className={`fixed top-0 z-40 w-full transition-all duration-300 ${
-				sticky ? " shadow-lg bg-white py-4" : "shadow-none py-8"
+				sticky ? " shadow-lg bg-white py-1" : "shadow-none py-4"
 			}`}
 		>
-			<div className='lg:py-0 py-2'>
+			<div className='lg:py-0 py-0.5'>
 				<div className='container mx-auto lg:max-w-screen-xl md:max-w-screen-md flex items-center justify-between px-4 space-x-10'>
 					<Logo />
 					<nav className='hidden lg:flex flex-grow items-center gap-8 justify-start'>

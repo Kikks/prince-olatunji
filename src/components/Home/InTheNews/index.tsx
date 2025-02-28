@@ -18,6 +18,11 @@ const demoItems = [
 		link: "https://kogireports.com/prince-olusoji-donates-cash-gift-items-to-ayere-community/",
 		text: "Ayere Community",
 		image: "https://picsum.photos/600/400?random=3"
+	},
+	{
+		link: "https://www.proofoundation.com/",
+		text: "Prince Olatunji Olusoji Foundation",
+		image: "https://picsum.photos/600/400?random=4"
 	}
 ];
 
