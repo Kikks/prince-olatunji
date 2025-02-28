@@ -40,7 +40,7 @@ const Banner = () => {
 							className='relative w-full aspect-[320/400] rounded-xl overflow-hidden'
 						>
 							<Image
-								src='/images/hero-image.jpg'
+								src='https://res.cloudinary.com/kikks/image/upload/c_fill/c_scale,w_800/v1740736256/prince-olatunji/hngsfyp4r7unokc6rreo.jpg'
 								alt='hero'
 								objectFit='cover'
 								className='object-cover'
