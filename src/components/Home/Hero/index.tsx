@@ -9,8 +9,8 @@ const Banner = () => {
 					<div className='flex flex-col space-y-5 items-start max-w-2xl'>
 						<div data-aos='fade-up' data-aos-delay='100'>
 							<RotatingText
-								texts={["Business Leader", "Nation Builder", "Philantropist"]}
-								mainClassName='text-white overflow-hidden justify-center text-7xl font-bold px-2.5 sm:px-3 md:px-5 bg-primary overflow-hidden py-1 sm:py-2 md:py-3 rounded-xl'
+								texts={["Business Leader", "Nation Builder", "Philanthropist"]}
+								mainClassName='text-white overflow-hidden justify-center text-2xl md:text-5xl lg:text-7xl font-bold px-2.5 sm:px-3 md:px-5 bg-primary overflow-hidden py-1 sm:py-2 md:py-3 rounded-xl'
 								staggerFrom={"last"}
 								initial={{ y: "100%" }}
 								animate={{ y: 0 }}
@@ -25,7 +25,7 @@ const Banner = () => {
 						<p
 							data-aos='fade-up'
 							data-aos-delay='300'
-							className='text-lg leading-loose text-gray-700'
+							className='text-base md:text-lg leading-loose text-gray-700'
 						>
 							I am committed to leveraging my tri-sectoral wealth of experience
 							to make real impact in the lives of individuals and communities
@@ -33,7 +33,7 @@ const Banner = () => {
 						</p>
 					</div>
 
-					<div className='flex items-center justify-center flex-1'>
+					<div className='hidden lg:flex items-center justify-center flex-1'>
 						<figure
 							data-aos='zoom-in'
 							data-aos-delay='500'

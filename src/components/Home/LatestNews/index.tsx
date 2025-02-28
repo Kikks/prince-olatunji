@@ -67,21 +67,27 @@ const LatestNews = () => {
 		<section className='bg-cream'>
 			<div className='container mx-auto lg:max-w-screen-xl md:max-w-screen-md px-4 space-y-10 flex flex-col items-start'>
 				<div className='w-full flex justify-between items-center'>
-					<ScrollFloat
-						animationDuration={1}
-						ease='back.inOut(2)'
-						scrollStart='center bottom+=20%'
-						scrollEnd='bottom bottom-=40%'
-						stagger={0.03}
-						textClassName='text-7xl font-bold text-primary'
-					>
-						Latest News
-					</ScrollFloat>
+					<div className='flex justify-start'>
+						<ScrollFloat
+							animationDuration={1}
+							ease='back.inOut(2)'
+							scrollStart='center bottom+=20%'
+							scrollEnd='bottom bottom-=40%'
+							stagger={0.03}
+							textClassName='hidden md:block text-2xl md:text-3xl lg:text-6xl font-bold text-primary'
+						>
+							Latest News
+						</ScrollFloat>
+
+						<h3 className='text-2xl md:hidden text-primary font-bold'>
+							Latest News
+						</h3>
+					</div>
 
 					<div data-aos='fade-up'>
 						<Link
 							href='/about'
-							className='group flex items-center relative overflow-hidden rounded-lg bg-primary px-5 py-3 font-semibold text-white duration-300 before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-0 before:rounded-lg before:bg-primary before:mix-blend-difference before:duration-300 lg:hover:before:w-full'
+							className='group flex items-center relative overflow-hidden rounded-lg bg-primary text-sm md:text-base px-3 md:px-5 py-1.5 md:py-3 font-semibold text-white duration-300 before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-0 before:rounded-lg before:bg-primary before:mix-blend-difference before:duration-300 lg:hover:before:w-full'
 						>
 							<span className=''>View All</span>
 							<PiArrowRightBold className='ml-2 group-hover:translate-x-1 transition-all duration-300' />
@@ -91,7 +97,7 @@ const LatestNews = () => {
 
 				<motion.div
 					ref={ref}
-					className='w-full grid grid-cols-3 gap-5'
+					className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'
 					variants={parentVariants}
 					initial='hidden'
 					animate={isInView ? "visible" : "hidden"}

@@ -73,10 +73,14 @@ const Testimonial = () => {
 							scrollStart='center bottom+=20%'
 							scrollEnd='bottom bottom-=40%'
 							stagger={0.03}
-							textClassName='text-7xl font-bold text-primary'
+							textClassName='hidden md:block text-2xl md:text-3xl lg:text-5xl font-bold text-primary'
 						>
 							What People Say About Asiwaju
 						</ScrollFloat>
+
+						<h3 className='text-2xl md:hidden text-primary font-bold'>
+							What People Say About Asiwaju
+						</h3>
 					</div>
 
 					<motion.div
@@ -84,7 +88,7 @@ const Testimonial = () => {
 						variants={parentVariants}
 						initial='hidden'
 						animate={isInView ? "visible" : "hidden"}
-						className='w-full grid grid-cols-4 gap-4'
+						className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'
 					>
 						{testimonialData.map((item, index) => (
 							<motion.div

@@ -1,6 +1,7 @@
 import React from "react";
 import FlowingMenu from "@/components/ui/FlowingMenu/FlowingMenu";
 import ScrollFloat from "@/components/ui/ScrollFloat/ScrollFloat";
+import Image from "next/image";
 
 const demoItems = [
 	{
@@ -41,9 +42,32 @@ const InTheNews = () => {
 			<div className='w-full bg-primary'>
 				<div
 					data-aos='zoom-in'
-					className='container mx-auto lg:max-w-screen-xl md:max-w-screen-md px-4 space-y-10 flex flex-col items-start py-40'
+					className='hidden md:flex container mx-auto lg:max-w-screen-xl md:max-w-screen-md px-4 space-y-10 flex-col items-start py-40'
 				>
 					<FlowingMenu items={demoItems} />
+				</div>
+
+				<div className='md:hidden'>
+					<div className='grid grid-cols-1 md:grid-cols-2 gap-4 p-5'>
+						{demoItems.map((item, index) => (
+							<div
+								key={index}
+								className='bg-white p-4 rounded-lg flex items-center space-x-2'
+							>
+								<figure className='relative w-16 h-9 rounded-lg overflow-hidden'>
+									<Image
+										src={item.image}
+										alt={item.text}
+										layout='fill'
+										className='w-full h-auto rounded-lg'
+										objectFit='cover'
+									/>
+								</figure>
+
+								<h3 className='text-lg font-bold'>{item.text}</h3>
+							</div>
+						))}
+					</div>
 				</div>
 			</div>
 		</section>

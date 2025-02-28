@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/Navigation";
 import ListItem from "./Navigation/ListItem";
 import { cn } from "@/utils/cn";
+import { MenuIcon } from "lucide-react";
 
 const Header: React.FC = () => {
 	const pathname = usePathname();
@@ -97,10 +98,12 @@ const Header: React.FC = () => {
 							</NavigationMenuList>
 						</NavigationMenu>
 					</nav>
+
+					<button className='size-10 hover:bg-primary/10 rounded-sm grid place-items-center lg:hidden'>
+						<MenuIcon />
+					</button>
 				</div>
-				{navbarOpen && (
-					<div className='fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-40' />
-				)}
+
 				<div
 					ref={mobileMenuRef}
 					className={`lg:hidden fixed top-0 right-0 h-full w-full bg-darkmode shadow-lg transform transition-transform duration-300 max-w-xs ${
