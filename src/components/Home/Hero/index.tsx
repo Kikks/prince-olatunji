@@ -10,7 +10,7 @@ const Banner = () => {
 						<div data-aos='fade-up' data-aos-delay='100'>
 							<RotatingText
 								texts={["Business Leader", "Nation Builder", "Philanthropist"]}
-								mainClassName='text-white overflow-hidden justify-center text-2xl md:text-5xl lg:text-7xl font-bold px-2.5 sm:px-3 md:px-5 bg-primary overflow-hidden py-1 sm:py-2 md:py-3 rounded-xl'
+								mainClassName='text-white overflow-hidden justify-center text-2xl md:text-5xl 2xl:text-7xl font-bold px-2.5 sm:px-3 md:px-5 bg-primary overflow-hidden py-1 sm:py-2 md:py-3 rounded-xl'
 								staggerFrom={"last"}
 								initial={{ y: "100%" }}
 								animate={{ y: 0 }}

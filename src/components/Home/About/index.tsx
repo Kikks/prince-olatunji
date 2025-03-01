@@ -6,7 +6,7 @@ import ScrollFloat from "@/components/ui/ScrollFloat/ScrollFloat";
 
 const About = () => {
 	return (
-		<section className='relative w-full flex'>
+		<section className='relative w-full flex bg-white'>
 			<div className='relative px-6 lg:px-8 flex-1 w-full flex items-center justify-center'>
 				<div className='container mx-auto lg:max-w-screen-xl md:max-w-screen-md px-4 flex flex-col md:flex-row items-center'>
 					<div className='flex-1 flex flex-col items-start gap-10'>
@@ -22,17 +22,17 @@ const About = () => {
 						</ScrollFloat>
 
 						<div className='w-full max-w-xl space-y-5'>
-							<p data-aos='fade-up'>
+							<p data-aos='fade-up' className='text-gray-600'>
 								Prince Olatunji Olusoji hails from Ayere in Ijumu Local
 								Government Area of Kogi State, Nigeria.
 							</p>
 
-							<p data-aos='fade-up'>
+							<p data-aos='fade-up' className='text-gray-600'>
 								Prince Olatunji was raised with strong values of integrity, hard
 								work, and love for humanity instilled by his parents.
 							</p>
 
-							<p data-aos='fade-up'>
+							<p data-aos='fade-up' className='text-gray-600'>
 								Driven by a desire to address human challenges, particularly in
 								engineering, Prince Olatunji pursued higher education after
 								completing his primary and secondary schooling. He earned a
@@ -42,7 +42,7 @@ const About = () => {
 								department, which honed his leadership skills.
 							</p>
 
-							<p data-aos='fade-up'>
+							<p data-aos='fade-up' className='text-gray-600'>
 								Following his graduation, Prince Olatunji enrolled in the one
 								year national volunteer scheme (known in Nigeria as the National
 								Youth Service Corps) and was posted to Delta, where he served
@@ -67,8 +67,8 @@ const About = () => {
 					>
 						<figure className='relative aspect-square w-[90%] overflow-hidden rounded-full md:size-full'>
 							<img
-								src='https://res.cloudinary.com/kikks/image/upload/c_crop,g_face,h_800,w_800/prince-olatunji/d8kmuab9jrlqme86tpmi'
-								alt=''
+								src='https://res.cloudinary.com/kikks/image/upload/w_800/prince-olatunji/Image_800x1000_kzwpwg.jpg'
+								alt='Prince Olatunji Olusoji'
 								className='size-full select-none object-cover'
 							/>
 

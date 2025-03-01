@@ -6,6 +6,7 @@ import {
 	PiLinkedinLogoFill,
 	PiTwitterLogoFill
 } from "react-icons/pi";
+import Image from "next/image";
 
 // MIDDLE LINKS DATA
 interface ProductType {
@@ -45,9 +46,14 @@ const footer = () => {
 				<div className='grid grid-cols-1 gap-y-10 gap-x-16 sm:grid-cols-2 lg:grid-cols-12 xl:gap-x-8'>
 					<div className='col-span-4'>
 						<Link href='/'>
-							<div className='size-12 rounded-xl bg-white flex items-center justify-center'>
-								<span className='text-xl font-semibold text-primary'>AA</span>
-							</div>
+							<figure className='relative h-[50px] md:h-[70px] lg:h-[80px] aspect-[1397/1231] overflow-hidden'>
+								<Image
+									src='/images/logo--white.png'
+									alt='logo'
+									layout='fill'
+									className='object-cover'
+								/>
+							</figure>
 						</Link>
 						<h3 className='text-white text-lg font-medium leading-9 mb-4 lg:mb-20 mt-5'>
 							Driving real impact across Nigeria, Africa, and beyond with
