@@ -5,6 +5,11 @@ import Image from "next/image";
 
 const demoItems = [
 	{
+		link: "https://www.proofoundation.com/",
+		text: "Prince Olatunji Olusoji Foundation",
+		image: "https://picsum.photos/600/400?random=4"
+	},
+	{
 		link: "https://leadership.ng/philanthropist-olusoji-launches-free-tutorials-for-jamb-candidates-in-kogi/",
 		text: "Free Jamb Tutorials",
 		image: "https://picsum.photos/600/400?random=1"
@@ -18,11 +23,6 @@ const demoItems = [
 		link: "https://kogireports.com/prince-olusoji-donates-cash-gift-items-to-ayere-community/",
 		text: "Ayere Community",
 		image: "https://picsum.photos/600/400?random=3"
-	},
-	{
-		link: "https://www.proofoundation.com/",
-		text: "Prince Olatunji Olusoji Foundation",
-		image: "https://picsum.photos/600/400?random=4"
 	}
 ];
 
