@@ -1,4 +1,3 @@
-import React from "react";
 import Hero from "@/components/Home/Hero";
 import Testimonial from "@/components/Home/Testimonial";
 import Newsletter from "@/components/Home/Newsletter";
@@ -7,6 +6,10 @@ import About from "@/components/Home/About";
 import InTheNews from "@/components/Home/InTheNews";
 import LatestNews from "@/components/Home/LatestNews";
 import Gallery from "@/components/Home/Gallery";
+import Footer from "@/components/Layout/Footer";
+import Header from "@/components/Layout/Header";
+import ScrollToTop from "@/components/ScrollToTop";
+
 export const metadata: Metadata = {
 	title: "Prince Olatunji Olusoji"
 };
@@ -14,6 +17,7 @@ export const metadata: Metadata = {
 export default function Home() {
 	return (
 		<main>
+			<Header />
 			<Hero />
 			<About />
 			<Testimonial />
@@ -21,6 +25,8 @@ export default function Home() {
 			<LatestNews />
 			<Gallery />
 			<Newsletter />
+			<Footer />
+			<ScrollToTop />
 		</main>
 	);
 }

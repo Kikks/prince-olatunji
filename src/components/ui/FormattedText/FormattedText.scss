@@ -1,0 +1,95 @@
+.formatted-text {
+	h1 {
+		@apply leading-loose text-3xl font-bold;
+	}
+
+	h2 {
+		@apply leading-loose text-2xl font-bold;
+	}
+
+	h3 {
+		@apply leading-loose text-xl font-bold;
+	}
+
+	h4 {
+		@apply leading-loose text-lg font-bold;
+	}
+
+	h5 {
+		@apply leading-loose text-lg font-bold;
+	}
+
+	h6 {
+		@apply leading-loose text-lg font-bold;
+	}
+
+	p {
+		@apply leading-loose text-base;
+	}
+
+	a {
+		@apply text-primary underline;
+	}
+
+	ul {
+		@apply list-disc space-y-5 ml-10;
+	}
+
+	ol {
+		@apply list-decimal space-y-5 ml-10;
+	}
+
+	li {
+		@apply text-base space-y-3;
+	}
+
+	blockquote {
+		@apply border-l-4 border-primary p-4 my-4 bg-gray-100;
+	}
+
+	pre {
+		@apply max-w-full overflow-x-auto;
+	}
+
+	code {
+		@apply text-base font-semibold;
+		font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+			"Liberation Mono", "Courier New", monospace !important;
+	}
+
+	img {
+		@apply mx-auto my-4;
+	}
+
+	table {
+		@apply w-full border-collapse border border-gray-300;
+	}
+
+	th {
+		@apply min-w-[150px] bg-gray-100 border border-gray-300 p-2 whitespace-nowrap;
+	}
+
+	td {
+		@apply min-w-[150px] border border-gray-300 p-2 bg-white;
+	}
+
+	hr {
+		@apply border-t-2 border-gray-300 my-4;
+	}
+
+	.align-left {
+		@apply text-left;
+	}
+
+	.align-center {
+		@apply text-center;
+	}
+
+	.align-right {
+		@apply text-right;
+	}
+
+	.align-justify {
+		@apply text-justify;
+	}
+}

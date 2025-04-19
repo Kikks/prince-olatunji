@@ -2,6 +2,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { MenuIcon } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
+
 import { headerData } from "../Header/Navigation/menuData";
 import Logo from "./Logo";
 import {
@@ -15,7 +18,9 @@ import {
 } from "@/components/ui/Navigation";
 import ListItem from "./Navigation/ListItem";
 import { cn } from "@/utils/cn";
-import { MenuIcon } from "lucide-react";
+import queryKeys from "@/lib/query-keys";
+import { getNavigationMenus } from "@/api/navigation-menus";
+import Skeleton from "react-loading-skeleton";
 
 const Header: React.FC = () => {
 	const pathname = usePathname();
@@ -23,6 +28,11 @@ const Header: React.FC = () => {
 	const [sticky, setSticky] = useState(false);
 
 	const mobileMenuRef = useRef<HTMLDivElement>(null);
+
+	const { data: navigationMenus, isLoading } = useQuery({
+		queryKey: [queryKeys.getNavigationMenus],
+		queryFn: () => getNavigationMenus()
+	});
 
 	const handleScroll = () => {
 		setSticky(window.scrollY >= 10);
@@ -56,48 +66,73 @@ const Header: React.FC = () => {
 			<div className='lg:py-0 py-0.5'>
 				<div className='container mx-auto lg:max-w-screen-xl md:max-w-screen-md flex items-center justify-between px-4 space-x-10'>
 					<Logo />
-					<nav className='hidden lg:flex flex-grow items-center gap-8 justify-start'>
-						<NavigationMenu>
-							<NavigationMenuList>
-								{headerData.map((item, index) =>
-									item?.href ? (
-										<NavigationMenuItem>
-											<Link href={item.href} legacyBehavior passHref>
-												<NavigationMenuLink
-													className={cn(
-														pathname === item.href &&
-															"underline underline-offset-4",
-														navigationMenuTriggerStyle()
-													)}
-												>
+
+					{isLoading ? (
+						<nav className='hidden lg:flex flex-grow items-center gap-8 justify-start'>
+							{Array(5)
+								.fill("")
+								.map((_, index) => (
+									<div className='h-7 w-16' key={index}>
+										<Skeleton className='h-full w-full' />
+									</div>
+								))}
+						</nav>
+					) : (
+						<nav className='hidden lg:flex flex-grow items-center gap-8 justify-start'>
+							<NavigationMenu>
+								<NavigationMenuList>
+									{(navigationMenus ?? [])?.map((item, index) =>
+										(item?.children ?? [])?.length > 0 ? (
+											<NavigationMenuItem key={index}>
+												<NavigationMenuTrigger className='bg-transparent'>
 													{item.label}
-												</NavigationMenuLink>
-											</Link>
-										</NavigationMenuItem>
-									) : item?.submenu ? (
-										<NavigationMenuItem>
-											<NavigationMenuTrigger>
-												{item.label}
-											</NavigationMenuTrigger>
-											<NavigationMenuContent>
-												<ul className='grid w-[250px] gap-1 p-2 bg-white'>
-													{item.submenu.map(subItem => (
-														<ListItem
-															key={subItem.label}
-															title={subItem.label}
-															href={subItem.href}
-														/>
-													))}
-												</ul>
-											</NavigationMenuContent>
-										</NavigationMenuItem>
-									) : (
-										<span key={index}>{item.label}</span>
-									)
-								)}
-							</NavigationMenuList>
-						</NavigationMenu>
-					</nav>
+												</NavigationMenuTrigger>
+												<NavigationMenuContent>
+													<ul className='grid w-[250px] gap-1 p-2 bg-white'>
+														{item.children?.map(subItem => (
+															<ListItem
+																key={subItem.label}
+																title={subItem.label}
+																href={
+																	subItem?.page?.slug
+																		? `/${subItem?.page?.slug}`
+																		: item?.custom_url_path
+																}
+															/>
+														))}
+													</ul>
+												</NavigationMenuContent>
+											</NavigationMenuItem>
+										) : item?.custom_url_path ? (
+											<NavigationMenuItem
+												key={index}
+												className='bg-transparent'
+											>
+												<Link
+													href={item.custom_url_path}
+													legacyBehavior
+													passHref
+												>
+													<NavigationMenuLink
+														className={cn(
+															navigationMenuTriggerStyle(),
+															pathname === item.custom_url_path &&
+																"underline underline-offset-4",
+															"bg-transparent"
+														)}
+													>
+														{item.label}
+													</NavigationMenuLink>
+												</Link>
+											</NavigationMenuItem>
+										) : (
+											<span key={index}>{item.label}</span>
+										)
+									)}
+								</NavigationMenuList>
+							</NavigationMenu>
+						</nav>
+					)}
 
 					<button className='size-10 hover:bg-primary/10 rounded-sm grid place-items-center lg:hidden'>
 						<MenuIcon />

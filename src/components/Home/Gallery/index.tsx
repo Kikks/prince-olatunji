@@ -35,7 +35,7 @@ const Gallery = () => {
 				<div className='w-full flex justify-center'>
 					<div data-aos='fade-up'>
 						<Link
-							href='/about'
+							href='/gallery'
 							className='group flex items-center relative overflow-hidden rounded-lg bg-primary text-sm md:text-base px-3 md:px-5 py-1.5 md:py-3 font-semibold text-white duration-300 before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-0 before:rounded-lg before:bg-primary before:mix-blend-difference before:duration-300 lg:hover:before:w-full'
 						>
 							<span className=''>View All</span>

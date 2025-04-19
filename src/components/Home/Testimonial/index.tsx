@@ -98,8 +98,8 @@ const Testimonial = () => {
 							>
 								<SpotlightCard
 									key={index}
-									className='h-full bg-white border-primary/30'
-									spotlightColor='rgba(2, 71, 84, 0.2)'
+									className='h-full bg-white border-primary/30 rounded-xl'
+									spotlightColor='rgba(2, 71, 84, 0.4)'
 								>
 									<div className='h-full flex flex-col items-center gap-4'>
 										<div className='w-full flex-1'>

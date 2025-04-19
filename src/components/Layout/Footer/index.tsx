@@ -42,7 +42,7 @@ const products: ProductType[] = [
 const footer = () => {
 	return (
 		<div className='bg-primary' id='first-section'>
-			<div className='container mx-auto lg:max-w-screen-xl md:max-w-screen-md pt-64 px-4'>
+			<div className='container mx-auto lg:max-w-screen-xl md:max-w-screen-md pt-64 pb-10 px-4'>
 				<div className='grid grid-cols-1 gap-y-10 gap-x-16 sm:grid-cols-2 lg:grid-cols-12 xl:gap-x-8'>
 					<div className='col-span-4'>
 						<Link href='/'>
