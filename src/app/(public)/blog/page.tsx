@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { BlogList } from "@/components/blog/BlogList";
 import SearchBar from "@/components/blog/SearchBar";
 import CategoryFilter from "@/components/blog/CategoryFilter";
 import ScrollFloat from "@/components/ui/ScrollFloat/ScrollFloat";
 import { useSearchParams } from "next/navigation";
 
-export default function BlogPage() {
+function BlogPageContent() {
 	const [searchQuery, setSearchQuery] = useState("");
 	const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 	const searchParams = useSearchParams();
@@ -56,5 +56,19 @@ export default function BlogPage() {
 
 			<BlogList searchQuery={searchQuery} categoryId={selectedCategory} />
 		</main>
+	);
+}
+
+export default function BlogPage() {
+	return (
+		<Suspense
+			fallback={
+				<div className='container mx-auto px-4 md:px-6 py-24 md:py-32'>
+					Loading...
+				</div>
+			}
+		>
+			<BlogPageContent />
+		</Suspense>
 	);
 }
