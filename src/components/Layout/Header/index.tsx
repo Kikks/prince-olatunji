@@ -1,8 +1,8 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
-import { MenuIcon } from "lucide-react";
+import { useEffect, useState } from "react";
+import { MenuIcon, X } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 
 import { headerData } from "../Header/Navigation/menuData";
@@ -21,13 +21,16 @@ import { cn } from "@/utils/cn";
 import queryKeys from "@/lib/query-keys";
 import { getNavigationMenus } from "@/api/navigation-menus";
 import Skeleton from "react-loading-skeleton";
+import {
+	Sheet,
+	SheetContent,
+	SheetTrigger,
+	SheetClose
+} from "@/components/ui/sheet";
 
 const Header: React.FC = () => {
 	const pathname = usePathname();
-	const [navbarOpen, setNavbarOpen] = useState(false);
 	const [sticky, setSticky] = useState(false);
-
-	const mobileMenuRef = useRef<HTMLDivElement>(null);
 
 	const { data: navigationMenus, isLoading } = useQuery({
 		queryKey: [queryKeys.getNavigationMenus],
@@ -38,24 +41,12 @@ const Header: React.FC = () => {
 		setSticky(window.scrollY >= 10);
 	};
 
-	const handleClickOutside = (event: MouseEvent) => {
-		if (
-			mobileMenuRef.current &&
-			!mobileMenuRef.current.contains(event.target as Node) &&
-			navbarOpen
-		) {
-			setNavbarOpen(false);
-		}
-	};
-
 	useEffect(() => {
 		window.addEventListener("scroll", handleScroll);
-		document.addEventListener("mousedown", handleClickOutside);
 		return () => {
 			window.removeEventListener("scroll", handleScroll);
-			document.removeEventListener("mousedown", handleClickOutside);
 		};
-	}, [navbarOpen]);
+	}, []);
 
 	return (
 		<header
@@ -134,38 +125,58 @@ const Header: React.FC = () => {
 						</nav>
 					)}
 
-					<button className='size-10 hover:bg-primary/10 rounded-sm grid place-items-center lg:hidden'>
-						<MenuIcon />
-					</button>
-				</div>
+					{/* Mobile Menu */}
+					<Sheet>
+						<SheetTrigger asChild>
+							<button className='size-10 hover:bg-primary/10 rounded-sm grid place-items-center lg:hidden'>
+								<MenuIcon />
+							</button>
+						</SheetTrigger>
+						<SheetContent side='right' className='py-12 px-6'>
+							<div className='space-y-6'>
+								{!isLoading &&
+									(navigationMenus ?? [])?.map((item, index) => (
+										<div key={index} className='space-y-3'>
+											{item?.custom_url_path ? (
+												<SheetClose asChild>
+													<Link
+														href={item.custom_url_path}
+														className={cn(
+															"block text-lg font-medium hover:text-primary transition-colors",
+															pathname === item.custom_url_path &&
+																"text-primary font-semibold"
+														)}
+													>
+														{item.label}
+													</Link>
+												</SheetClose>
+											) : (
+												<div className='text-lg font-medium'>{item.label}</div>
+											)}
 
-				<div
-					ref={mobileMenuRef}
-					className={`lg:hidden fixed top-0 right-0 h-full w-full bg-darkmode shadow-lg transform transition-transform duration-300 max-w-xs ${
-						navbarOpen ? "translate-x-0" : "translate-x-full"
-					} z-50`}
-				>
-					<div className='flex items-center justify-between p-4'>
-						<h2 className='text-lg font-bold text-midnight_text dark:text-midnight_text'>
-							<Logo />
-						</h2>
-
-						{/*  */}
-						<button
-							onClick={() => setNavbarOpen(false)}
-							className="bg-[url('/images/closed.svg')] bg-no-repeat bg-contain w-5 h-5 absolute top-0 right-0 mr-8 mt-8 dark:invert"
-							aria-label='Close menu Modal'
-						></button>
-					</div>
-					<nav className='flex flex-col items-start p-4'>
-						<NavigationMenu>
-							<NavigationMenuList>
-								{headerData.map((item, index) => (
-									<ListItem key={index} title={item.label} href={item.href} />
-								))}
-							</NavigationMenuList>
-						</NavigationMenu>
-					</nav>
+											{(item?.children ?? [])?.length > 0 && (
+												<div className='pl-4 border-l-2 border-gray-200 space-y-2'>
+													{item.children?.map(subItem => (
+														<SheetClose key={subItem.label} asChild>
+															<Link
+																href={
+																	subItem?.page?.slug
+																		? `/${subItem?.page?.slug}`
+																		: (item?.custom_url_path ?? "#")
+																}
+																className='block text-base hover:text-primary transition-colors'
+															>
+																{subItem.label}
+															</Link>
+														</SheetClose>
+													))}
+												</div>
+											)}
+										</div>
+									))}
+							</div>
+						</SheetContent>
+					</Sheet>
 				</div>
 			</div>
 		</header>
