@@ -4,7 +4,7 @@ import { motion, useInView } from "framer-motion";
 
 import ScrollFloat from "@/components/ui/ScrollFloat/ScrollFloat";
 import SpotlightCard from "@/components/ui/SpotlightCard/SpotlightCard";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/Avatar";
+// import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/Avatar";
 
 const testimonialData = [
 	{
@@ -108,13 +108,13 @@ const Testimonial = () => {
 											</p>
 										</div>
 
-										<div className='w-full flex space-x-3 items-center'>
-											<Avatar className='w-10 h-10'>
+										<div className='w-full flex space-x-3 items-center justify-center'>
+											{/* <Avatar className='w-10 h-10'>
 												<AvatarImage src={item.image} />
 												<AvatarFallback>{item.name.charAt(0)}</AvatarFallback>
-											</Avatar>
+											</Avatar> */}
 
-											<div className='flex flex-col items-start'>
+											<div className='flex flex-col items-center text-center'>
 												<h3 className='text-base font-bold'>{item.name}</h3>
 												<p className='text-xs text-gray-500'>
 													{item.profession}
