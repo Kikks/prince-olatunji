@@ -28,7 +28,7 @@ const LatestNews = () => {
 		queryFn: () => getBasicArticlesDetails({ page: 1, pageSize: 3 })
 	});
 
-	return (
+	return (posts?.data?.length ?? 0) > 0 ? (
 		<section className='bg-cream'>
 			<div className='container mx-auto lg:max-w-screen-xl md:max-w-screen-md px-4 space-y-10 flex flex-col items-start'>
 				<div className='w-full flex justify-between items-center'>
@@ -79,6 +79,8 @@ const LatestNews = () => {
 				</motion.div>
 			</div>
 		</section>
+	) : (
+		<></>
 	);
 };
 
