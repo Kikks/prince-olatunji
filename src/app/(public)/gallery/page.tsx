@@ -62,7 +62,9 @@ export default async function GalleryPage() {
 			id: item?.id ?? "",
 			height: item?.height ?? 0,
 			width: item?.width ?? 0,
-			image: item?.formats?.medium?.url ?? "",
+			image:
+				item?.formats?.medium?.url ??
+				(item?.formats?.large?.url || item?.url || ""),
 			highResImage: item?.formats?.large?.url || item?.url || ""
 		}));
 
