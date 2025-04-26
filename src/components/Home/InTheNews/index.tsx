@@ -55,7 +55,10 @@ const InTheNews = () => {
 				<div className='md:hidden'>
 					<div className='grid grid-cols-1 md:grid-cols-2 gap-4 p-5'>
 						{demoItems.map((item, index) => (
-							<div
+							<a
+								href={item.link}
+								target='_blank'
+								rel='noopener noreferrer'
 								key={index}
 								className='bg-white p-4 rounded-lg flex items-center space-x-2'
 							>
@@ -70,7 +73,7 @@ const InTheNews = () => {
 								</figure>
 
 								<h3 className='text-lg font-bold'>{item.text}</h3>
-							</div>
+							</a>
 						))}
 					</div>
 				</div>
