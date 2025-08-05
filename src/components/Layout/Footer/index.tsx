@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { Icon } from "@iconify/react/dist/iconify.js";
 import {
+	PiEnvelope,
 	PiFacebookLogoFill,
 	PiInstagramLogoFill,
 	PiLinkedinLogoFill,
@@ -61,7 +61,7 @@ const footer = () => {
 						</h3>
 						<div className='flex gap-4'>
 							<Link
-								href='https://web.facebook.com/prince.olusojigcfr/'
+								href='https://web.facebook.com/profile.php?id=61577642384935'
 								className='bg-white/20 rounded-full p-2 text-white hover:bg-cream hover:text-primary duration-300'
 							>
 								<PiFacebookLogoFill className='text-2xl inline-block' />
@@ -73,7 +73,7 @@ const footer = () => {
 								<PiLinkedinLogoFill className='text-2xl inline-block' />
 							</Link>
 							<Link
-								href='https://www.instagram.com/tfiregcfr/'
+								href='https://www.instagram.com/asiwaju4humanity/'
 								className='bg-white/20 rounded-full p-2 text-white hover:bg-cream hover:text-primary duration-300'
 							>
 								<PiInstagramLogoFill className='text-2xl inline-block' />
@@ -83,6 +83,12 @@ const footer = () => {
 								className='bg-white/20 rounded-full p-2 text-white hover:bg-cream hover:text-primary duration-300'
 							>
 								<PiTwitterLogoFill className='text-2xl inline-block' />
+							</Link>
+							<Link
+								href='mailto:info@aafoundation.ng'
+								className='bg-white/20 rounded-full p-2 text-white hover:bg-cream hover:text-primary duration-300'
+							>
+								<PiEnvelope className='text-2xl inline-block' />
 							</Link>
 						</div>
 					</div>
