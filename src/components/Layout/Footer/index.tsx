@@ -35,7 +35,7 @@ const products: ProductType[] = [
 	{
 		id: 3,
 		section: "Contact",
-		link: ["+234 708 746 1774", "info@aafoundation.ng"]
+		link: ["+234 708 746 1774", "olusojiprincetunji@gmail.com"]
 	}
 ];
 
@@ -85,7 +85,7 @@ const footer = () => {
 								<PiTwitterLogoFill className='text-2xl inline-block' />
 							</Link>
 							<Link
-								href='mailto:info@aafoundation.ng'
+								href='mailto:olusojiprincetunji@gmail.com'
 								className='bg-white/20 rounded-full p-2 text-white hover:bg-cream hover:text-primary duration-300'
 							>
 								<PiEnvelope className='text-2xl inline-block' />
